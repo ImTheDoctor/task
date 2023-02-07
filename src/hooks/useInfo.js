@@ -5,8 +5,8 @@ const useInfo = data => {
     const [errors, setErrors] = useState({})
 
     const handleChange = event => {
-        const {value, name} = event.target
-        const init = {...values}
+        // const {value, name} = event.target
+        // const init = {...values}
     }
 
     const handleErrors = err => {
@@ -19,3 +19,5 @@ const useInfo = data => {
 
     return {values, errors, handleChange, handleErrors, setInitialValues}
 }
+
+export default useInfo

@@ -1,8 +1,7 @@
 import React from 'react'
 import styles from '../UserinfoBox.module.css'
-import 
 
-const UserDataInput = () => {
+const UserDataInput = ({handleChange}) => {
     return (
         <div className={styles.userInput}>
             <form className={styles.form}>
