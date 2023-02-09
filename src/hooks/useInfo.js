@@ -3,22 +3,12 @@ import { useState } from "react";
 const useInfo = () => {
     const [values, setValues] = useState({})
     const [errors, setErrors] = useState({})
-    const [info, setInfo] = useState([])
-
-    
-
-    // useEffect(() => {
-    //     const getData = () => {
-    //         const data = JSON.parse(localStorage.getItem("data"))
-    //         setInfo(s => ({ ...s, data }))
-    //     }
-    //     getData()
-    // }, [])
+    const [info, setInfo] = useState(JSON.parse(localStorage.getItem("data")) || [])
 
     const handleSubmit = event => {
         event.preventDefault()
-        localStorage.setItem("data", JSON.stringify([values]))
-        setInfo(JSON.parse(localStorage.getItem("data")))
+        setInfo([...info, values]);
+        localStorage.setItem("data", JSON.stringify([...info, values]));
         event.target.reset()
     }
 
@@ -31,11 +21,11 @@ const useInfo = () => {
         setErrors(err)
     }
 
-    const handleDelete = (event) => {
-        event.preventDefault()
-        localStorage.removeItem("data");
+    const handleDelete = () => {
+        setInfo([]);
+        return localStorage.removeItem("data");
     }
-
+console.log(values);
     return { info, errors, handleChange, handleSubmit, handleDelete, handleErrors }
 }
 

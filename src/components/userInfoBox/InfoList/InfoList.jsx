@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../UserinfoBox.module.css'
 
 const InfoList = ({ info }) => {
-console.log(info)
+  
   return (
     <>
       {info && info.map((elem, idx) => (
@@ -13,6 +13,8 @@ console.log(info)
           <div className={styles.infoWrapper}>
             <h3>{elem.header}</h3>
             <span>Rating : {elem.rating}</span>
+            <h2>Name : {elem.Name}</h2>
+            <span>Active : {elem.isActive}</span>
             <p>{elem.description}</p>
           </div>
         </div>

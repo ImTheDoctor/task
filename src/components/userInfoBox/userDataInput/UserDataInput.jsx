@@ -28,6 +28,27 @@ const UserDataInput = ({ handleChange, handleSubmit, handleDelete }) => {
                     />
                 </div>
                 <div>
+                    <label htmlFor="Name">Name</label>
+                    <input
+                        onChange={(event) => handleChange(event)}
+                        className={styles.header}
+                        type="text"
+                        id="Name"
+                        name="Name"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="isActive">checkbox</label>
+                    <input
+                        onChange={(event) => handleChange(event)}
+                        className={styles.header}
+                        type="checkbox"
+                        id="isActive"
+                        name="isActive"
+                    />
+                </div>
+                <div>
                     <label htmlFor="description">Description</label>
                     <textarea
                         onChange={(event) => handleChange(event)}
