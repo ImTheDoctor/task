@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useInfo = () => {
+const useInfo = (data) => {
     const [values, setValues] = useState({})
     const [errors, setErrors] = useState({})
     const [info, setInfo] = useState(JSON.parse(localStorage.getItem("data")) || [])
@@ -25,7 +25,7 @@ const useInfo = () => {
         setInfo([]);
         return localStorage.removeItem("data");
     }
-console.log(values);
+console.log(data);
     return { info, errors, handleChange, handleSubmit, handleDelete, handleErrors }
 }
 

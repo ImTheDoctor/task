@@ -7,12 +7,24 @@ import useInfo from '../../hooks/useInfo.js'
 
 
 const UserInfoBox = () => {
-    const { handleChange, handleSubmit, handleDelete, info } = useInfo({})
+    const { handleChange, handleSubmit, handleDelete, info } = useInfo({
+        initial: {
+            file: "",
+            header: "",
+            Name: "",
+            description: "",
+            rating: 0,
+            isActive: false
+        },
+        onSubmit: values => {
+            console.log(values)
+        }
+    })
 
     return (
         <div className={styles.container}>
             <div className={styles.userInput}>
-                <UserDataInput handleChange={handleChange} handleSubmit={handleSubmit} handleDelete={handleDelete}/>
+                <UserDataInput handleChange={handleChange} handleSubmit={handleSubmit} handleDelete={handleDelete} />
             </div>
             <div className={styles.infoList}>
                 <InfoList info={info} />
