@@ -1,20 +1,22 @@
 import { useState } from "react";
 
 const useInfo = (data) => {
-    const [values, setValues] = useState({})
+    const [values, setValues] = useState(data.initial)
     const [errors, setErrors] = useState({})
-    const [info, setInfo] = useState(JSON.parse(localStorage.getItem("data")) || [])
+
 
     const handleSubmit = event => {
         event.preventDefault()
-        setInfo([...info, values]);
-        localStorage.setItem("data", JSON.stringify([...info, values]));
+        data.onSubmit(values)
         event.target.reset()
     }
 
     const handleChange = event => {
-        const { value, name } = event.target;
-        setValues({ ...values, [name]: value });
+        const { type, checked, value, name } = event.target;
+        setValues({
+            ...values,
+            [name]: type === 'checkbox' ? checked : value,
+        });
     }
 
     const handleErrors = err => {
@@ -22,11 +24,10 @@ const useInfo = (data) => {
     }
 
     const handleDelete = () => {
-        setInfo([]);
-        return localStorage.removeItem("data");
+        data.onDelete()
     }
-console.log(data);
-    return { info, errors, handleChange, handleSubmit, handleDelete, handleErrors }
+
+    return { values, errors, handleChange, handleSubmit, handleDelete, handleErrors }
 }
 
 export default useInfo

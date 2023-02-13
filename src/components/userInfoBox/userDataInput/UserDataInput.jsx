@@ -4,7 +4,7 @@ import styles from '../UserinfoBox.module.css'
 const UserDataInput = ({ handleChange, handleSubmit, handleDelete }) => {
     return (
         <div>
-            <form className={styles.form} onSubmit={(event)=>{handleSubmit(event)}}>
+            <form className={styles.form} onSubmit={(event) => { handleSubmit(event) }}>
                 <div>
                     <label htmlFor="name">Upload User Image</label>
                     <input
@@ -69,12 +69,34 @@ const UserDataInput = ({ handleChange, handleSubmit, handleDelete }) => {
                         min="0" max="5"
                     />
                 </div>
+                <fieldset>
+                    <legend>Radio Input:</legend>
+                    <input
+                        type="radio"
+                        id="option1"
+                        name="radioInput"
+                        value="option1"
+                        
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="option1">Option 1</label>
+
+                    <input
+                        type="radio"
+                        id="option2"
+                        name="radioInput"
+                        value="option2"
+                        
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="option2">Option 2</label>
+                </fieldset>
                 <div>
                     <input className={styles.btn} type="submit" value="Send" />
                     <button className={styles.btn} onClick={handleDelete}>Delete</button>
                 </div>
             </form>
-            
+
         </div>
     )
 }
