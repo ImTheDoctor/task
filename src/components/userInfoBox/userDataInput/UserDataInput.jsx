@@ -76,7 +76,6 @@ const UserDataInput = ({ handleChange, handleSubmit, handleDelete }) => {
                         id="option1"
                         name="radioInput"
                         value="option1"
-                        
                         onChange={handleChange}
                     />
                     <label htmlFor="option1">Option 1</label>
@@ -86,7 +85,6 @@ const UserDataInput = ({ handleChange, handleSubmit, handleDelete }) => {
                         id="option2"
                         name="radioInput"
                         value="option2"
-                        
                         onChange={handleChange}
                     />
                     <label htmlFor="option2">Option 2</label>

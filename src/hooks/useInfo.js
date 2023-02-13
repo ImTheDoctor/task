@@ -13,11 +13,20 @@ const useInfo = (data) => {
 
     const handleChange = event => {
         const { type, checked, value, name } = event.target;
-        setValues({
-            ...values,
-            [name]: type === 'checkbox' ? checked : value,
-        });
-    }
+        switch (type) {
+            case 'checkbox':
+                setValues({
+                    ...values,
+                    [name]: checked
+                });
+                break;
+            default:
+                setValues({
+                    ...values,
+                    [name]: value
+                });
+        }
+    };
 
     const handleErrors = err => {
         setErrors(err)
